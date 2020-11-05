@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class ListContacts extends Component {
+/*class ListContacts extends Component {
   render()
    {
     console.log('Props', this.props)
@@ -30,6 +30,37 @@ class ListContacts extends Component {
       </ol>
     );
   }//end render()
-}//end ListContacts
+
+  
+
+  
+
+}//end ListContacts*/
+
+
+function ListContacts (props) 
+  {
+    return(
+      <ol className='contact-list'>
+      {props.contacts.map((contact) => (
+        <li key={contact.id} className='contact-list-item'>
+          <div
+            className='contact-avatar'
+            style={{
+              backgroundImage: `url(${contact.avatarURL})`
+            }}
+          ></div>
+          <div className='contact-details'>
+            <p>{contact.name}</p>
+            <p>{contact.handle}</p>
+            </div>
+          <button className='contact-remove'>
+            Remove
+          </button>
+        </li>
+      ))}
+    </ol>
+    )
+  }
 
 export default ListContacts ;
